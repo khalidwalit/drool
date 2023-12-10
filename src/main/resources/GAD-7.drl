@@ -1,0 +1,30 @@
+import  com.springhow.examples.drools.domain.AnxityScore;
+
+rule "GAD-7 Rule 1"
+    when
+        anxityScore : AnxityScore( totalScore >= 0 && totalScore <= 4 );
+    then
+        anxityScore.setPossibility("minimal");
+end;
+
+rule "GAD-7 Rule 2"
+    when
+        anxityScore : AnxityScore( totalScore >= 5 && totalScore <= 9 );
+    then
+        anxityScore.setPossibility("mild");
+end;
+
+rule "GAD-7 Rule 3"
+    when
+        anxityScore : AnxityScore( totalScore >= 10 && totalScore <= 14 );
+    then
+        anxityScore.setPossibility("moderate");
+end;
+
+rule "GAD-7 Rule 4"
+    when
+        anxityScore : AnxityScore( totalScore >= 15 && totalScore <= 21 );
+    then
+        anxityScore.setPossibility("abnormal");
+end;
+

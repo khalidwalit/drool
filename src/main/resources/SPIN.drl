@@ -1,0 +1,30 @@
+import  com.springhow.examples.drools.domain.AnxityScore;
+
+rule "SPIN Rule 1"
+    when
+        anxityScore : AnxityScore( anxitytype == "GAD7" && totalScore >= 0 && totalScore <= 20 );
+    then
+        anxityScore.setPossibility("minimal");
+end;
+
+rule "SPIN Rule 2"
+    when
+        anxityScore : AnxityScore( anxitytype == "GAD7" && totalScore >= 21 && totalScore <= 30 );
+    then
+        anxityScore.setPossibility("mild");
+end;
+
+rule "SPIN Rule 3"
+    when
+        anxityScore : AnxityScore( anxitytype == "GAD7" && totalScore >= 31 && totalScore <= 40 );
+    then
+        anxityScore.setPossibility("moderate");
+end;
+
+rule "SPIN Rule 4"
+    when
+        anxityScore : AnxityScore( anxitytype == "GAD7" && totalScore >= 41 && totalScore <= 50 );
+    then
+        anxityScore.setPossibility("severe");
+end;
+
